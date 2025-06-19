@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RutasApi", "RutasApi.csproj", "{7BD08B40-70D5-4278-ABF8-A0D96A63C828}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BD08B40-70D5-4278-ABF8-A0D96A63C828}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BD08B40-70D5-4278-ABF8-A0D96A63C828}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BD08B40-70D5-4278-ABF8-A0D96A63C828}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BD08B40-70D5-4278-ABF8-A0D96A63C828}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C4F405F3-5D85-4076-A4D3-1705AF04C6F0}
+	EndGlobalSection
+EndGlobal

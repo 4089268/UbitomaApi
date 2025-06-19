@@ -1,0 +1,18 @@
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "Sicem": "Data Source=host;Database=db;Application Name=appName;Integrated Security=false;User ID=usr;Password=pass;Connection Timeout=15;",
+    "ArquosConexion": "Data Source=host;Database=db;Application Name=appName; Integrated Security=false;User ID=usr;Password=pass;Connection Timeout=600;",
+    "ArquosMedia": "Data Source=host;Database=db;Application Name=appName; Integrated Security=false;User ID=usr;Password=pass;Connection Timeout=600;"
+  },
+  "UbitomaSettings": {
+    "Key": ""
+  },
+}

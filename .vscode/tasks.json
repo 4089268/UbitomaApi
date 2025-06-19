@@ -1,0 +1,88 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Scaffold Arquos",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "ef",
+                "dbcontext",
+                "scaffold",
+                "Name=ArquosConexion",
+                "Microsoft.EntityFrameworkCore.SqlServer",
+                "--table",
+                "Padron.vw_Cat_Padron",
+                "--table",
+                "Padron.Cat_Giros",
+                "--table",
+                "Global.Cat_Estatus",
+                "--table",
+                "Facturacion.Cat_SituacionesToma",
+                "--table",
+                "Padron.Cat_TiposUsuario",
+                "--table",
+                "Ubitoma.Opr_Actualizacion",
+                "--context",
+                "ArquosContext",
+                "--context-dir",
+                "Data",
+                "--output-dir",
+                "Models/Entities/Arquos",
+                "--force"
+
+            ],
+            "group": "none",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Scaffold Sicem",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "ef",
+                "dbcontext",
+                "scaffold",
+                "Name=Sicem",
+                "Microsoft.EntityFrameworkCore.SqlServer",
+                "--table",
+                "moviles.cat_dispositivos",
+                "--table",
+                "dbo.Imagenes",
+                "--table",
+                "Global.Opr_Sesiones",
+                "--table",
+                "dbo.Rutas",
+                "--table",
+                "dbo.Usuarios",
+                "--table",
+                "Ubitoma.Opr_Actualizacion",
+                "--table",
+                "Ubitoma.Opr_Ruta",
+                "--table",
+                "Ubitoma.Opr_DetRuta",
+                "--table",
+                "Ubitoma.Operadores",
+                "--table",
+                "Ubitoma.Sesion_Operadores",
+                "--context",
+                "SicemContext",
+                "--context-dir",
+                "Data",
+                "--output-dir",
+                "Models/Entities/Sicem",
+                "--force"
+            ],
+            "group": "none",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
