@@ -10,6 +10,7 @@ namespace RutasApi.Models.Entities.Sicem
         {
             Operadores = new HashSet<Operadore>();
             OprActualizacions = new HashSet<OprActualizacion>();
+            OprLoteNuevos = new HashSet<OprLoteNuevo>();
             OprRuta = new HashSet<OprRutum>();
         }
 
@@ -27,10 +28,12 @@ namespace RutasApi.Models.Entities.Sicem
         public string? ServidorA { get; set; }
         public string? Alias { get; set; }
 
-        public string ConnectionString {
-            get {
+        public string ConnectionString
+        {
+            get
+            {
                 var build = new System.Data.SqlClient.SqlConnectionStringBuilder();
-                build.DataSource = (Alterno==true)?ServidorA:Servidor;
+                build.DataSource = (Alterno == true) ? ServidorA : Servidor;
                 build.InitialCatalog = BaseDatos;
                 build.ApplicationName = "Sicem";
                 build.ConnectTimeout = (int)TimeSpan.FromMinutes(10).TotalSeconds;
@@ -40,10 +43,12 @@ namespace RutasApi.Models.Entities.Sicem
                 return build.ToString();
             }
         }
-        public string ConnectionStringMedia {
-            get {
+        public string ConnectionStringMedia
+        {
+            get
+            {
                 var build = new System.Data.SqlClient.SqlConnectionStringBuilder();
-                build.DataSource = (Alterno==true)?ServidorA:Servidor;
+                build.DataSource = (Alterno == true) ? ServidorA : Servidor;
                 build.InitialCatalog = BaseDatos + "Media";
                 build.ApplicationName = "Sicem";
                 build.ConnectTimeout = (int)TimeSpan.FromMinutes(10).TotalSeconds;
@@ -54,9 +59,10 @@ namespace RutasApi.Models.Entities.Sicem
             }
         }
 
-        public string Nombre => this.Oficina??"";
+        public string Nombre => this.Oficina ?? "";
 
         public virtual ICollection<OprActualizacion> OprActualizacions { get; set; }
+        public virtual ICollection<OprLoteNuevo> OprLoteNuevos { get; set; }
         public virtual ICollection<OprRutum> OprRuta { get; set; }
         public virtual ICollection<Operadore> Operadores { get; set; }
     }

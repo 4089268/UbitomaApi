@@ -7,6 +7,8 @@ namespace RutasApi.Models.Entities.Sicem
     {
         public Operadore()
         {
+            OprActualizacions = new HashSet<OprActualizacion>();
+            OprLoteNuevos = new HashSet<OprLoteNuevo>();
             SesionOperadores = new HashSet<SesionOperadore>();
         }
 
@@ -19,8 +21,8 @@ namespace RutasApi.Models.Entities.Sicem
         public DateTime? UpdatedAt { get; set; }
 
         public virtual Ruta? Ruta { get; set; }
-        
-        public virtual ICollection<SesionOperadore> SesionOperadores { get; set; } = [];
-        public virtual ICollection<OprActualizacion> OprActualizacions { get; set; } = [];
+        public virtual ICollection<OprActualizacion> OprActualizacions { get; set; }
+        public virtual ICollection<OprLoteNuevo> OprLoteNuevos { get; set; }
+        public virtual ICollection<SesionOperadore> SesionOperadores { get; set; }
     }
 }

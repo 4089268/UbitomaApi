@@ -158,7 +158,7 @@ namespace RutasApi.Services {
             // * convert CapturaRequest into OprActualizacion
             OprActualizacion newActualizacionRecord = OprActualizacionBuilder.FromModel(request);
             newActualizacionRecord.IdOficina = oficina.Id;
-            newActualizacionRecord.IdOperador = operadorID;
+            newActualizacionRecord.OperadorId = operadorID;
 
             // * get last modification of the current padron
             var _lastActualizacion = this.sicemContext.OprActualizacions

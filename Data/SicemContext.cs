@@ -22,6 +22,7 @@ namespace RutasApi.Data
         public virtual DbSet<Operadore> Operadores { get; set; } = null!;
         public virtual DbSet<OprActualizacion> OprActualizacions { get; set; } = null!;
         public virtual DbSet<OprDetRutum> OprDetRuta { get; set; } = null!;
+        public virtual DbSet<OprLoteNuevo> OprLoteNuevos { get; set; } = null!;
         public virtual DbSet<OprRutum> OprRuta { get; set; } = null!;
         public virtual DbSet<OprSesione> OprSesiones { get; set; } = null!;
         public virtual DbSet<Ruta> Rutas { get; set; } = null!;
@@ -245,6 +246,8 @@ namespace RutasApi.Data
                     .IsUnicode(false)
                     .HasColumnName("observaciones");
 
+                entity.Property(e => e.OperadorId).HasColumnName("operadorID");
+
                 entity.Property(e => e.RazonSocial)
                     .HasMaxLength(100)
                     .IsUnicode(false)
@@ -282,13 +285,10 @@ namespace RutasApi.Data
                     .HasForeignKey(d => d.IdOficina)
                     .HasConstraintName("FK_RutaID");
 
-                entity.Property(e => e.IdOperador).HasColumnName("operadorID");
-
-                entity.HasOne(d => d.IOperadoreNavigation)
+                entity.HasOne(d => d.Operador)
                     .WithMany(p => p.OprActualizacions)
-                    .HasForeignKey(d => d.IdOperador)
+                    .HasForeignKey(d => d.OperadorId)
                     .HasConstraintName("FK_ActualizacionOperador");
-
             });
 
             modelBuilder.Entity<OprDetRutum>(entity =>
@@ -313,6 +313,102 @@ namespace RutasApi.Data
                     .HasForeignKey(d => d.OprRutaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__Opr_DetRu__OprRu__5614BF03");
+            });
+
+            modelBuilder.Entity<OprLoteNuevo>(entity =>
+            {
+                entity.ToTable("Opr_LoteNuevo", "Ubitoma");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.AnomaliaPredio)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("anomaliaPredio");
+
+                entity.Property(e => e.Calle)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("calle");
+
+                entity.Property(e => e.CalleLat1)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("calleLat1");
+
+                entity.Property(e => e.CalleLat2)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("calleLat2");
+
+                entity.Property(e => e.Colonia)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("colonia");
+
+                entity.Property(e => e.Fecha)
+                    .HasColumnType("datetime")
+                    .HasColumnName("fecha");
+
+                entity.Property(e => e.Giro)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("giro");
+
+                entity.Property(e => e.IdAnomaliaPredio).HasColumnName("idAnomaliaPredio");
+
+                entity.Property(e => e.IdGiro).HasColumnName("idGiro");
+
+                entity.Property(e => e.IdOficina).HasColumnName("idOficina");
+
+                entity.Property(e => e.IdPadron).HasColumnName("idPadron");
+
+                entity.Property(e => e.Latitud)
+                    .HasMaxLength(250)
+                    .IsUnicode(false)
+                    .HasColumnName("latitud");
+
+                entity.Property(e => e.Longitud)
+                    .HasMaxLength(250)
+                    .IsUnicode(false)
+                    .HasColumnName("longitud");
+
+                entity.Property(e => e.NumeroExt)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("numeroExt");
+
+                entity.Property(e => e.NumeroInt)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("numeroInt");
+
+                entity.Property(e => e.Observaciones)
+                    .HasMaxLength(250)
+                    .IsUnicode(false)
+                    .HasColumnName("observaciones");
+
+                entity.Property(e => e.OperadorId).HasColumnName("operadorID");
+
+                entity.Property(e => e.TipoInstalacion)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("tipoInstalacion");
+
+                entity.Property(e => e.TipoToma)
+                    .HasMaxLength(100)
+                    .IsUnicode(false)
+                    .HasColumnName("tipoToma");
+
+                entity.HasOne(d => d.IdOficinaNavigation)
+                    .WithMany(p => p.OprLoteNuevos)
+                    .HasForeignKey(d => d.IdOficina)
+                    .HasConstraintName("FK_LoteNuevoRuta");
+
+                entity.HasOne(d => d.Operador)
+                    .WithMany(p => p.OprLoteNuevos)
+                    .HasForeignKey(d => d.OperadorId)
+                    .HasConstraintName("FK_LoteNuevoOperador");
             });
 
             modelBuilder.Entity<OprRutum>(entity =>

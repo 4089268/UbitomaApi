@@ -70,6 +70,8 @@
                 "Ubitoma.Operadores",
                 "--table",
                 "Ubitoma.Sesion_Operadores",
+                "--table",
+                "Ubitoma.Opr_LoteNuevo",
                 "--context",
                 "SicemContext",
                 "--context-dir",
