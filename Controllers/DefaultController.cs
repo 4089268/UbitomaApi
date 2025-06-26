@@ -30,7 +30,7 @@ namespace RutasApi.Controllers{
         [HttpGet]
         [Route("/")]
         public ActionResult<string> Version() {
-            return "Ubitoma API version 1.5.2";
+            return "Ubitoma API version 1.6.1";
         }
         
         

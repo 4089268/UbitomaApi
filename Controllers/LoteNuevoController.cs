@@ -52,11 +52,11 @@ namespace RutasApi.Controllers
 
             // * prepare the response
             var _response = new ApiResponse<IEnumerable<RutasActualizacionResponse>>();
-
             try
             {
                 // * get the operator
                 Operadore operador = (Operadore)(HttpContext.Items["operador"] ?? throw new ArgumentException("Fail at get the Operador", "operador"));
+                logger.LogInformation("Registrando nuevo lote operador:{idOperador}-{operador}, oficina:{IdOficina}  registros:{total}", operador.Nombre, operador.Id, idOficina, request.Count());
 
                 //* get the office
                 Ruta oficina = sicemService.ObtenerRuta(idOficina) ?? throw new ArgumentException("La oficina no se encuentra o no esta disponible", "idOficina");

@@ -25,10 +25,11 @@ namespace RutasApi.Services {
             try {
                 var sessionOperador = sicemContext.SesionOperadores
                     .Where(element => element.Id == sessionID)
-                    .Where(element => element.ValidTo.Date >= DateTime.Now.Date)
+                    // .Where(element => element.ValidTo.Date >= DateTime.Now.Date)
                     .FirstOrDefault();
 
-                if( sessionOperador == null){
+                if(sessionOperador == null)
+                {
                     return null;
                 }
                 
